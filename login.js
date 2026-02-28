@@ -1,12 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
-import{ useState} from 'react'
-import React from 'react';
-import {TextInput} from 'react-native-paper';
-import{ View ,Text,StyleSheet ,  ImageBackground,TouchableOpacity,KeyboardAvoidingView,Platform } from 'react-native';
-
+import react from 'react';
+import { Provider as PaperProvider } from 'react-native-paper';
+import{ View ,Text,StyleSheet , TextInput, ImageBackground,TouchableOpacity,KeyboardAvoidingView,Platform } from 'react-native';
+const MyComponent = () => {
+  const [text, setText] = React.useState('');
+}
 export default function Login() {
- const [text, setText] = React.useState('');
-  const [hidePassword, setHidePassword] = useState(true);
+
     return (
 <KeyboardAvoidingView
   style={{ flex: 1 }}
@@ -14,37 +14,28 @@ export default function Login() {
 >
 <ImageBackground  source={ require('./assets/k.jpg')} style={styles.background} resizeMode='cover'>
            <View style={styles.dividen}/> 
-           <Text style={styles.textw}> Welcome To Login </Text>
+           <Text style={styles.textw}> Welcome To Login Page</Text>
+           <View style={styles.dividen}/>
         <Text style={styles.texth}>Login to continue track your health </Text>
-       
+        <View style={styles.dividen}/>
         <View >
-        <View style={styles.retangl}> 
-          <View style={styles.inputContainer}>
-  <TextInput placeholder=' Enter Email '
-    
-    style={{ backgroundColor: 'transparent' }}
-    contentStyle={{ paddingVertical: 8, paddingHorizontal: 12 }}
-    left={<TextInput.Icon icon="email" />}
-  />
-</View>       
-          <View style={styles.dividen}/>
-           <TextInput placeholder='Password' style={styles.inputContainer}
-            placeholderTextColor='hsl(0, 11%, 35%)' 
-             secureTextEntry={hidePassword}
-           
-     right={ 
    
-    <TextInput.Icon
-     contentStyle={{ paddingVertical: 8, paddingHorizontal: 12 }}
-      icon={hidePassword ? "eye-off" : "eye"}
-      onPress={() => setHidePassword(!hidePassword)}
-    />
-  } />
+        <View style={styles.retangl}> 
+         
+          <TextInput placeholder=' Enter email' style={styles.inputtext}/>        
+          <View style={styles.dividen}/>
+           <TextInput placeholder='Password' style={styles.inputtext}
+            placeholderTextColor='hsl(0, 11%, 35%)'
+            placeholderfontSize='3' 
+            secureTextEntry
+      right={<TextInput.Icon icon="eye" />}/>
            <View style={styles.dividen}/>
            <TouchableOpacity style={styles.tochable}><Text style={styles.tochbletext}> Login</Text></TouchableOpacity>
             <View style={styles.dividen}/>
            <TouchableOpacity><Text style={styles.tochl}> Forgot  Password?</Text></TouchableOpacity>
-           <View style={styles.dividen}/>      
+           <View style={styles.dividen}/>
+           <View style={styles.dividen}/>
+          
            <View style={styles.sedivi}/>
             <View style={styles.dividen}/><View style={styles.dividen}/>
            <Text>Don't have an account?<TouchableOpacity><Text style={styles.creat}> Creat an account</Text></TouchableOpacity> </Text> 
@@ -57,34 +48,40 @@ export default function Login() {
 } 
 const styles=StyleSheet.create(
 {
+
 textw:{
   color:'hsl(274, 19%, 93%)',
   fontSize:30,
   fontWeight:'bold',
- textAlign:'center',
+   textAlign:'center',
 } ,
 texth:{
   color:'#111111',
   fontSize:20,
   fontWeight:'bold',
-  marginBottom:30,
+  textAlign:'center',
 } ,
-inputContainer: {
-  width: '100%',
-  borderRadius: 25,
-  backgroundColor: '#fff',
-  paddingVertical:2,
-  paddingHorizontal:80,
+inputtext:{
+borderRadius:100,
+ paddingVertical: 2, 
+    paddingHorizontal: 100, 
+    borderColor:'#baadad',
+    borderWidth: 1,  
+    width:'100%',
+    height:50,
+    justifyContent:'center',
+alignItems:'center',
+ fontSize: 15,
 },
 dividen:{
   width:'0%',
-  height:'3%',
+  height:'4%',
 backgroundColor:'white',
 flexDirection:'row',
 } ,
 tochable:{
 width:'90%',
-height:40,
+height:50,
 borderRadius:40,
 borderColor:'black',
 borderWidth:1,
@@ -120,17 +117,16 @@ creat:{
   fontSize:15,
   textDecorationLine:'underline',
 },
-retangl: {
-  width: '95%',
-    backgroundColor: 'rgba(255,255,255,0.9)',
-    borderRadius: 30,
-    padding: 25,
-    alignItems: 'center',
-    elevation: 60, // shadow for Android
-    shadowColor: '#000', // shadow for iOS
-    shadowOffset: { width: 5, height: 4 },
-    shadowOpacity: 1,
-    shadowRadius: 20,
+retangl:{
+  backgroundColor:'rgb(239, 243, 238)',
+ width:'99%',
+ height:'80%',
+  alignItems:'center',
+  justifyContent:'center',
+  borderRadius:30,
+   borderWidth: 15,
+   alignContent:'center',
+   borderColor:'#ffff'
 },background:{
   flex:1,
   justifyContent:'center',
