@@ -4,13 +4,13 @@ import Recored from './recored';
 
 import { TextInput } from "react-native-paper";
 
-
  export default function  Time (){
   const [task,setTask]=useState('');
   const [time,setTime]=useState(0);
   const  [cheek ,setCheek]=useState(false)
    const [screenrecord ,setScreenrecord ]=useState(false);
    const [ selectedtask ,setSelectedtask]=useState([]);
+   const[onchange ,setOnchange]=useState([]);
   
   useEffect(() =>{
 if(!cheek) return;
@@ -24,11 +24,10 @@ const minute=Math.floor(time/60);
 const second=Math.floor(time%60);
 return `${minute}:${second < 10 ? '0' : ''}${second}`;
   } 
-
   const changescrean =()=>{
       setScreenrecord(!screenrecord);}
       if(screenrecord){
-        return <Recored  focuson={selectedtask} bacon={changescrean }/>
+        return <Recored  focuse={onchange} back={changescrean }/>
       }
   const onHandTouch = () => {
     setCheek(!cheek);
@@ -42,6 +41,7 @@ return `${minute}:${second < 10 ? '0' : ''}${second}`;
     if (trimmed.length>0){
      setSelectedtask(prev=>[...prev,trimmed])
       setTask('');
+      setOnchange(trimmed);
       
     }
 
