@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Text, StyleSheet,View,  SafeAreaView, TouchableOpacity} from "react-native";
-import Recored from './recored';
+
 
 import { TextInput } from "react-native-paper";
 
@@ -9,9 +9,7 @@ import { TextInput } from "react-native-paper";
   const [task,setTask]=useState('');
   const [time,setTime]=useState(0);
   const  [cheek ,setCheek]=useState(false)
-   const [screenrecord ,setScreenrecord ]=useState(false);
-   const [ selectedtask ,setSelectedtask]=useState([]);
-  
+   const [exercise, setExercise] = useState('');
   useEffect(() =>{
 if(!cheek) return;
 const interval=setInterval(()=>{setTime (prev=>prev+1) },1000);
@@ -23,13 +21,7 @@ const interval=setInterval(()=>{setTime (prev=>prev+1) },1000);
 const minute=Math.floor(time/60);
 const second=Math.floor(time%60);
 return `${minute}:${second < 10 ? '0' : ''}${second}`;
-  } 
-
-  const changescrean =()=>{
-      setScreenrecord(!screenrecord);}
-      if(screenrecord){
-        return <Recored  focuson={selectedtask} bacon={changescrean }/>
-      }
+  }
   const onHandTouch = () => {
     setCheek(!cheek);
   } 
@@ -38,33 +30,24 @@ return `${minute}:${second < 10 ? '0' : ''}${second}`;
     setTime(0);
   } 
   const editing=()=>{
-    const trimmed =task.trim();
-    if (trimmed.length>0){
-     setSelectedtask(prev=>[...prev,trimmed])
-      setTask('');
-      
-    }
-
-  
+  setExercise(task);
+    setTask('');
   }
   return(
     <View style={styles.continer}>
     <Text style={styles.titel}>Exercise Timer</Text> 
+
  <Text style={styles.time}> {changetime(time)}</Text>
  <View style={styles.divide}/>
     <TextInput  placeholder=" Recored your exercise type " 
     value={task}
     onChangeText={task => setTask(task)}
-  style={styles.intputtext}/> <TouchableOpacity onPress={ ()=>{changescrean();
-   editing()
-   }
-    
- }><Text> Add</Text></TouchableOpacity>
- {selectedtask.map((task,index) =>(
-  <Text key={index} >{task} </Text> 
- )
-
-) }
+  onSubmitEditing={editing}
+  style={styles.intputtext}
+         /> 
+  
+         <Text style={styles.exersise}>Exersise:{exercise}</Text>
+        
          <TouchableOpacity  onPress ={onHandTouch} style={styles.tochable}> <Text style={styles.bottontext}> { cheek? 'puse' :'start'}</Text></TouchableOpacity>
           <TouchableOpacity  onPress ={Reset}  style={styles.restart}> <Text style={styles.textre}> Reset</Text> </TouchableOpacity>
 </View>
@@ -76,7 +59,7 @@ const styles =StyleSheet .create(
     textAlign:'center',
     padding:70,
     backgroundColor:'#080f61'
-     
+    
   } ,
   titel:{
  paddingHorizontal:27,
