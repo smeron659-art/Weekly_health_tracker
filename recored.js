@@ -4,8 +4,11 @@ import {TextInput} from 'react-native-paper';
 export default  function Recored({ focuse,back}){ 
     return(
     <View style={styles.continer}> 
-<Text> This the recording page </Text>
-<Text style={styles.text}>{focuse}</Text>
+<Text style={styles.title}> Your Recoreds page </Text>
+<View style={{ flexDirection:'row',justifyContent:''}}>
+<Text> ExerciseType</Text> <Text> ExerciseType</Text>
+</View>
+<Text style={styles.text}> Exercise:{focuse}</Text>
 <TouchableOpacity  onPress={back} style={styles.touchable}> <Text style={styles.back}>back</Text></TouchableOpacity>
     </View>
     )
@@ -15,25 +18,39 @@ const styles =StyleSheet .create(
 {
  continer:{
     flex:1,
-    padding:30,
+   marginBottom:10,
     alignItems:'center',
     justifyContent:'center',
     backgroundColor:'#080f61',
+  
+  
 
  },
  touchable:{
   width:70,
-  height:70,
-  borderRadius:40,
-  borderColor:'black',
+  height:40,
+  borderRadius:20,
+  borderColor:'#ffff',
+  backgroundColor:'#fff',
  },
 text:{
-fontSize:20,
+fontSize:26,
 color:'#fff',
+marginBottom:30,
+
+width:'90%'
 },
 back:{
-    color:'#ffff',
+    color:'#201919',
     fontWeight:'bold',
+    padding:10,
+},
+title:{
+    fontSize:20,
+    fontWeight:'bold',
+    color:'#fff',
+marginBottom:60,
+ 
 }
 
 })

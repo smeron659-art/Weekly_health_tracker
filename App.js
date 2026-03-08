@@ -26,7 +26,7 @@ if(time==1){
      const second = Math.floor(time % 60);
      return `${minute}:${second < 10 ? '0' : ''}${second}`;
    } 
-  
+
   const changescrean =()=>{
       setScreenrecord(!screenrecord);}
       if(screenrecord){
@@ -53,23 +53,25 @@ if(time==1){
   return(
     <View style={styles.continer}>
     <Text style={styles.titel}>Exercise Timer</Text> 
- <Text style={styles.time}> {changetime(time)}</Text>
+ <Text style={styles.time}> {changetime(time)}</Text> 
  <View style={styles.divide}/>
-    <TextInput  placeholder=" Recored your exercise type " 
+ <View style={{flexDirection:'row',justifyContent:'space-between',alignItems: 'left', marginBottom:40,marginTop:40}}>
+    <TextInput  placeholder=" Recored your exercise.....  " 
     value={task}
     onChangeText={task => setTask(task)}
-  style={styles.intputtext}/> <TouchableOpacity onPress={ ()=>{changescrean();
-   editing()
+  style={styles.intputtext}/> <TouchableOpacity  style={styles.addBottom}  onPress={ ()=>{changescrean();
+    editing() ;
    }
-    
- }><Text> Add</Text></TouchableOpacity>
+   
+ }><Text style={styles.addBottomtext}> +</Text></TouchableOpacity>
+ </View>
  {selectedtask.map((task,index) =>(
-  <Text key={index} >{task} </Text> 
+  <Text key={index} style={styles.task} >{task} </Text> 
  )
 
 ) }
-         <TouchableOpacity  onPress ={onHandTouch} style={styles.tochable}> <Text style={styles.bottontext}> { cheek? 'puse' :'start'}</Text></TouchableOpacity>
-          <TouchableOpacity  onPress ={Reset}  style={styles.restart}> <Text style={styles.textre}> Reset</Text> </TouchableOpacity>
+<TouchableOpacity  onPress ={onHandTouch} style={styles.tochable}> <Text style={styles.bottontext}> { cheek? 'puse' :'start'}</Text></TouchableOpacity>
+ <TouchableOpacity  onPress ={Reset}  style={styles.restart}> <Text style={styles.textre}> Reset</Text> </TouchableOpacity>
 </View>
  )
  }
@@ -77,15 +79,18 @@ const styles =StyleSheet .create(
   {
   continer:{
     textAlign:'center',
-    padding:70,
-    backgroundColor:'#080f61'
+  
+    backgroundColor:'#080f61',
+     flex:1,
+     justifyContent:'center',
      
   } ,
   titel:{
  paddingHorizontal:27,
- fontSize:28,
+ fontSize:33,
  fontWeight:'bold',
- color:'#fff'
+ color:'#fff',
+ textAlign:'center',
   },
   tochable:{
     width:110,
@@ -96,15 +101,15 @@ const styles =StyleSheet .create(
     alignItems:'center',
     justifyContent:'center',
     textAlign:'center',
-    marginBottom:40,
-    marginTop:20,
-    marginHorizontal:60,
+    marginBottom:60,
+    marginTop:40,
+    marginHorizontal:120,
     padding:15,
   } ,
   bottontext:{
     flex:1,
     alignContent:'center',
-    padding:10,
+    padding:15,
     fontSize:20,
     fontWeight:'bold',
     color:'#fff'
@@ -112,22 +117,22 @@ const styles =StyleSheet .create(
   },
 
 intputtext:{
-width:'120%',
+width:'80%',
 height:50,
-paddingHorizontal:10,
+marginRight:10,
+ 
+
+
+
 },
 time:{
-  padding:30,
-  fontSize:80,
+textAlign:'center',
+  fontSize:95,
 fontWeight:'bold',
 color:'#fff',
 },
-exersise:{
-   fontSize:24,
-   paddingHorizontal:3,
-   padding:18,
-   color:'#fff'
-} ,
+
+
 restart:{
   padding:15,
   width:190,
@@ -137,7 +142,7 @@ restart:{
   borderRadius:30,
  textAlign:"center",
  alignItems:'center',
-  marginHorizontal:40,
+  marginHorizontal:100,
   marginBottom:100,
 
 } ,
@@ -147,15 +152,23 @@ textre:{
   color:'#fff'
 },
 divide:{
-  width:0,
-  height:10,
-  alignItems:'center',
-  color:'#fff'
+  width:'90%',
+  height:1,
+  backgroundColor:'#ffffff',
+ borderRadius: 20,          
+  paddingBottom:4,
+  
+  alignSelf: 'center',
+
 },
 addBottomtext:{
- flexDirection:'row',
- fontsize:20,
- color:'#ffff',
+ 
+ fontSize:17,
+ color:'#fff',
+ fontWeight:'bold',
+ fontSize:16,
+ padding:1,
+
 
 },
 addBottom:{
@@ -163,7 +176,12 @@ addBottom:{
   width:60,
   height:60,
   borderRadius:30,
-  padding:20,
+ 
+  borderWidth:1,
+  backgroundColor:'transparent',
+borderColor:'#fff',
+alignItems:'center',
+justifyContent:'center',
 
 },
 task:{
@@ -171,5 +189,7 @@ task:{
   textDecorationLine:'underline',
   
 }
+
+
 
   })
