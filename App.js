@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Text, StyleSheet,View,  SafeAreaView, TouchableOpacity} from "react-native";
+import { Text, StyleSheet,View,  SafeAreaView, TouchableOpacity ,Alert} from "react-native";
 import Recored from './recored';
 
 import { TextInput } from "react-native-paper";
@@ -11,19 +11,22 @@ import { TextInput } from "react-native-paper";
    const [screenrecord ,setScreenrecord ]=useState(false);
    const [ selectedtask ,setSelectedtask]=useState([]);
    const[onchange ,setOnchange]=useState([]);
-  
   useEffect(() =>{
 if(!cheek) return;
-const interval=setInterval(()=>{setTime (prev=>prev+1) },1000);
-
-    return () => clearInterval(interval);
+const interval=setInterval(()=>{setTime (prev=>prev+1) },1000)
+   return () => clearInterval(interval);
  } ,[cheek]) 
-
-  const changetime =(time) =>{
-const minute=Math.floor(time/60);
-const second=Math.floor(time%60);
-return `${minute}:${second < 10 ? '0' : ''}${second}`;
-  } 
+ useEffect(()=>{
+if(time==1){
+  Alert.alert("Alert","good job");
+}
+ },[time])
+  function changetime(time) {
+     const minute = Math.floor(time / 60);
+     const second = Math.floor(time % 60);
+     return `${minute}:${second < 10 ? '0' : ''}${second}`;
+   } 
+  
   const changescrean =()=>{
       setScreenrecord(!screenrecord);}
       if(screenrecord){
