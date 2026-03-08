@@ -30,7 +30,7 @@ if(time==1){
   const changescrean =()=>{
       setScreenrecord(!screenrecord);}
       if(screenrecord){
-        return <Recored  focuse={onchange} back={changescrean }/>
+        return <Recored  focuse={onchange} back={changescrean } RecorederTime={changetime(time)}/>
       }
   const onHandTouch = () => {
     setCheek(!cheek);
@@ -79,10 +79,10 @@ const styles =StyleSheet .create(
   {
   continer:{
     textAlign:'center',
-  
     backgroundColor:'#080f61',
      flex:1,
      justifyContent:'center',
+     alignItems:'center',
      
   } ,
   titel:{
@@ -121,8 +121,6 @@ width:'80%',
 height:50,
 marginRight:10,
  
-
-
 
 },
 time:{
