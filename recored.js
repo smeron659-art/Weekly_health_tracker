@@ -5,24 +5,35 @@ export default  function Recored({ focuse,back}){
     return(
     <View style={styles.continer}> 
 <Text> This the recording page </Text>
-<Text>{focuse}</Text>
-<TouchableOpacity  onPress={back} style={styles.touchable}> <Text>back</Text></TouchableOpacity>
+<Text style={styles.text}>{focuse}</Text>
+<TouchableOpacity  onPress={back} style={styles.touchable}> <Text style={styles.back}>back</Text></TouchableOpacity>
     </View>
     )
 }
+
 const styles =StyleSheet .create( 
-    {
+{
  continer:{
     flex:1,
     padding:30,
     alignItems:'center',
     justifyContent:'center',
+    backgroundColor:'#080f61',
+
  },
  touchable:{
   width:70,
   height:70,
   borderRadius:40,
- }
-
+  borderColor:'black',
+ },
+text:{
+fontSize:20,
+color:'#fff',
+},
+back:{
+    color:'#ffff',
+    fontWeight:'bold',
+}
 
 })

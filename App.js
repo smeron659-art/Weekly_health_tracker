@@ -16,9 +16,9 @@ import { TextInput } from "react-native-paper";
 if(!cheek) return;
 const interval=setInterval(()=>{setTime (prev=>prev+1) },1000);
 
- 
     return () => clearInterval(interval);
  } ,[cheek]) 
+
   const changetime =(time) =>{
 const minute=Math.floor(time/60);
 const second=Math.floor(time%60);
@@ -148,5 +148,25 @@ divide:{
   height:10,
   alignItems:'center',
   color:'#fff'
+},
+addBottomtext:{
+ flexDirection:'row',
+ fontsize:20,
+ color:'#ffff',
+
+},
+addBottom:{
+  textAlign:'center',
+  width:60,
+  height:60,
+  borderRadius:30,
+  padding:20,
+
+},
+task:{
+  color:'#ffff',
+  textDecorationLine:'underline',
+  
 }
+
   })
