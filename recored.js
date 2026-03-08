@@ -1,14 +1,18 @@
-import react from "react";
+import react, { useState } from "react";
 import { View,Text, StyleSheet,TouchableOpacity} from 'react-native';
 import {TextInput} from 'react-native-paper';
 export default  function Recored({ focuse,back}){ 
+   
     return(
     <View style={styles.continer}> 
 <Text style={styles.title}> Your Recoreds page </Text>
-<View style={{ flexDirection:'row',justifyContent:''}}>
-<Text> ExerciseType</Text> <Text> ExerciseType</Text>
+<View style={{ flexDirection:'row'}}>
+<Text style={{marginHorizontal:50}}> ExerciseType</Text> <Text> Time Takens</Text>
 </View>
-<Text style={styles.text}> Exercise:{focuse}</Text>
+
+<Text   style={styles.text}>{focuse ( prev=>{})}</Text>
+
+
 <TouchableOpacity  onPress={back} style={styles.touchable}> <Text style={styles.back}>back</Text></TouchableOpacity>
     </View>
     )
@@ -22,8 +26,6 @@ const styles =StyleSheet .create(
     alignItems:'center',
     justifyContent:'center',
     backgroundColor:'#080f61',
-  
-  
 
  },
  touchable:{
