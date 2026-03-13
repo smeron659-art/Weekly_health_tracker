@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Toast from 'react-native-toast-message';
 import { Text, StyleSheet,View,  SafeAreaView, TouchableOpacity ,Alert} from "react-native";
 import Recored from './recored';
 
@@ -18,9 +19,16 @@ const interval=setInterval(()=>{setTime (prev=>prev+1) },1000)
  } ,[cheek]) 
  useEffect(()=>{
 if(time==1){
-  Alert.alert("Alert","good job");
+{showToast()}
 }
  },[time])
+ const showToast=()=>{
+  Toast.show({
+    type:'success',
+    text: 'This is some something 👋'
+  });
+
+ }
   function changetime(time) {
      const minute = Math.floor(time / 60);
      const second = Math.floor(time % 60);
@@ -70,6 +78,7 @@ if(time==1){
  )
 
 ) }
+  <Toast />
 <TouchableOpacity  onPress ={onHandTouch} style={styles.tochable}> <Text style={styles.bottontext}> { cheek? 'puse' :'start'}</Text></TouchableOpacity>
  <TouchableOpacity  onPress ={Reset}  style={styles.restart}> <Text style={styles.textre}> Reset</Text> </TouchableOpacity>
 </View>
@@ -187,7 +196,6 @@ task:{
   textDecorationLine:'underline',
   
 }
-
 
 
   })
