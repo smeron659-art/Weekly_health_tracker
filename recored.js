@@ -1,6 +1,7 @@
 
 import { View,Text, StyleSheet,TouchableOpacity} from 'react-native';
 import {TextInput} from 'react-native-paper';
+import { SystemBars } from "react-native-edge-to-edge";
 import React, { useState,useEffect } from "react";
 export default  function Recored({ focuse,back,RecorederTime}){
     const [teker,setTeker]=useState([]);
@@ -19,7 +20,8 @@ setTimestore(prev=>[...prev,RecorederTime])
 <View style={styles.text }>
 <Text  style={styles.title}> ExerciseType</Text> <Text style={{ marginHorizontala:50}}>  </Text> <Text style={styles.titlel}> Time Takens</Text>
 </View>
-
+ <SystemBars style="light" />
+ 
  {teker.map((item,index)=> (
     <View key={index} style={{flexDirection:'row'}}>
       <Text style={{marginHorizontal:50,color:'#fff',fontSize:20}}>{item}</Text>

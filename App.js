@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Toast from 'react-native-toast-message';
 import { Text, StyleSheet,View,  SafeAreaView, TouchableOpacity ,Alert} from "react-native";
 import Recored from './recored';
-
+import { SystemBars } from "react-native-edge-to-edge";
 import { TextInput } from "react-native-paper";
 
  export default function  Time (){
@@ -27,14 +27,12 @@ if(time==1){
     type:'success',
     text: 'This is some something 👋'
   });
-
  }
   function changetime(time) {
      const minute = Math.floor(time / 60);
      const second = Math.floor(time % 60);
      return `${minute}:${second < 10 ? '0' : ''}${second}`;
    } 
-
   const changescrean =()=>{
       setScreenrecord(!screenrecord);}
       if(screenrecord){
@@ -47,6 +45,7 @@ if(time==1){
     setCheek(false);
     setTime(0);
   } 
+  
   const editing=()=>{
     const trimmed =task.trim();
     if (trimmed.length>0){
@@ -62,6 +61,7 @@ if(time==1){
     <View style={styles.continer}>
     <Text style={styles.titel}>Exercise Timer</Text> 
  <Text style={styles.time}> {changetime(time)}</Text> 
+  <SystemBars style="light" />
  <View style={styles.divide}/>
  <View style={{flexDirection:'row',justifyContent:'space-between',alignItems: 'left', marginBottom:40,marginTop:40}}>
     <TextInput  placeholder=" Recored your exercise.....  " 
@@ -76,9 +76,9 @@ if(time==1){
  {selectedtask.map((task,index) =>(
   <Text key={index} style={styles.task} >{task} </Text> 
  )
-
+ 
 ) }
-  <Toast />
+  <Toast/>
 <TouchableOpacity  onPress ={onHandTouch} style={styles.tochable}> <Text style={styles.bottontext}> { cheek? 'puse' :'start'}</Text></TouchableOpacity>
  <TouchableOpacity  onPress ={Reset}  style={styles.restart}> <Text style={styles.textre}> Reset</Text> </TouchableOpacity>
 </View>
