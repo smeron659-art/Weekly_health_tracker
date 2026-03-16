@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Toast from 'react-native-toast-message';
-import { Text, StyleSheet,View,  SafeAreaView, TouchableOpacity ,Alert} from "react-native";
+import { Text, StyleSheet,View,  SafeAreaView, TouchableOpacity ,Alert ,ImageBackground } from "react-native";
 import Recored from './recored';
 import { SystemBars } from "react-native-edge-to-edge";
 import { TextInput } from "react-native-paper";
@@ -73,11 +73,13 @@ if(time==1){
    
  }><Text style={styles.addBottomtext}> +</Text></TouchableOpacity>
  </View>
+ <ImageBackground  source={require('./assets/light.jpg')} style={styles.image} >
  {selectedtask.map((task,index) =>(
   <Text key={index} style={styles.task} >{task} </Text> 
  )
  
 ) }
+</ImageBackground>
   <Toast/>
 <TouchableOpacity  onPress ={onHandTouch} style={styles.tochable}> <Text style={styles.bottontext}> { cheek? 'puse' :'start'}</Text></TouchableOpacity>
  <TouchableOpacity  onPress ={Reset}  style={styles.restart}> <Text style={styles.textre}> Reset</Text> </TouchableOpacity>
@@ -195,7 +197,13 @@ task:{
   color:'#ffff',
   textDecorationLine:'underline',
   
-}
+},
+image: {
+    width: 150,
+    height:120 ,
+    marginBottom: 20,
+  }
+
 
 
   })

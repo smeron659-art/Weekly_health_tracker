@@ -1,5 +1,5 @@
 
-import { View,Text, StyleSheet,TouchableOpacity} from 'react-native';
+import { View,Text, StyleSheet,TouchableOpacity,ImageBackground} from 'react-native';
 import {TextInput} from 'react-native-paper';
 import { SystemBars } from "react-native-edge-to-edge";
 import React, { useState,useEffect } from "react";
@@ -21,18 +21,17 @@ setTimestore(prev=>[...prev,RecorederTime])
 <Text  style={styles.title}> ExerciseType</Text> <Text style={{ marginHorizontala:50}}>  </Text> <Text style={styles.titlel}> Time Takens</Text>
 </View>
  <SystemBars style="light" />
- 
+<ImageBackground  source={require('./assets/light.jpg')} style={styles.image} >
+
  {teker.map((item,index)=> (
     <View key={index} style={{flexDirection:'row'}}>
       <Text style={{marginHorizontal:50,color:'#fff',fontSize:20}}>{item}</Text>
       <Text style={{color:'#fff',fontSize:20}}>{timestore[index]}</Text>
     </View>
   ))
-
-
     
   }
-   
+  </ImageBackground>  
 
 <TouchableOpacity  onPress={back} style={styles.touchable}> <Text style={styles.back}>back</Text></TouchableOpacity>
     </View>
@@ -90,6 +89,11 @@ titlel:{
 marginBottom:10,
 textAlign:'top',
  
-}
+},
+image: {
+    width: 200,
+    height: 150,
+    marginBottom: 20,
+  }
 
 })
