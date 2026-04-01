@@ -4,6 +4,8 @@ import { Text, StyleSheet,View,  SafeAreaView, TouchableOpacity ,Alert ,ImageBac
 import Recored from './recored';
 import { SystemBars } from "react-native-edge-to-edge";
 import { TextInput } from "react-native-paper";
+ import { Link } from "expo-router";
+
  export default function  Time (){
   const [task,setTask]=useState('');
   const [time,setTime]=useState(0);
