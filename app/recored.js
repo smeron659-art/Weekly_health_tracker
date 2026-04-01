@@ -6,8 +6,8 @@ import React, { useState,useEffect } from "react";
 import { useLocalSearchParams } from "expo-router";
 
 export default  function Recored(){
-    const [teker,setTeker]=useState([]);
-   
+     const {savetime,savedtext}=useLocalSearchParams();
+    
     return(
     <View style={styles.continer}> 
 <Text style={styles.title}> Your Recoreds page </Text>
@@ -15,11 +15,11 @@ export default  function Recored(){
 <Text  style={styles.title}> ExerciseType</Text> <Text style={{ marginHorizontala:50}}>  </Text> <Text style={styles.titlel}> Time Takens</Text>
 </View>
  <SystemBars style="light" />
-<ImageBackground  source={require('./assets/light.jpg')} style={styles.image} >
+<ImageBackground  source={require('..././assets/light.jpg')} style={styles.image} >
  {teker.map((item,index)=> (
     <View key={index} style={{flexDirection:'row'}}>
-      <Text style={{marginHorizontal:50,color:'#fff',fontSize:20}}>{item}</Text>
-      <Text style={{color:'#fff',fontSize:20}}>{timestore[index]}</Text>
+      <Text style={{marginHorizontal:50,color:'#fff',fontSize:20}}>{savedtext}</Text>
+      <Text style={{color:'#fff',fontSize:20}}>{savetime}</Text>
     </View>
   ))
   }
