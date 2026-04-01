@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from "react";
 import Toast from 'react-native-toast-message';
 import { Text, StyleSheet,View,  SafeAreaView, TouchableOpacity ,Alert ,ImageBackground } from "react-native";
-import Recored from './recored';
 import { SystemBars } from "react-native-edge-to-edge";
 import { TextInput } from "react-native-paper";
- import { Link } from "expo-router";
-
+ import {useRouter } from "expo-router";
  export default function  Time (){
   const [task,setTask]=useState('');
   const [time,setTime]=useState(0);
   const  [cheek ,setCheek]=useState(false)
-   const [screenrecord ,setScreenrecord ]=useState(false);
    const [ selectedtask ,setSelectedtask]=useState([]);
-   const[onchange ,setOnchange]=useState([]);
+   const[onchange ,setOnchange]=useState([]); 
+   const  router =useRouter();
   useEffect(() =>{
 if(!cheek) return;
 const interval=setInterval(()=>{setTime (prev=>prev+1) },1000)
@@ -34,11 +32,7 @@ if(time==1){
      const second = Math.floor(time % 60);
      return `${minute}:${second < 10 ? '0' : ''}${second}`;
    } 
-  const changescrean =()=>{
-      setScreenrecord(!screenrecord);}
-      if(screenrecord){
-        return <Recored  focuse={onchange} back={changescrean } RecorederTime={changetime(time)}/>
-      }
+  
   const onHandTouch = () => {
     setCheek(!cheek);
   } 
@@ -52,7 +46,6 @@ if(time==1){
     if (trimmed.length>0){
      setSelectedtask(prev=>[...prev,trimmed])
       setTask('');
-      setOnchange(trimmed); 
     }
   }
   return(
@@ -65,13 +58,19 @@ if(time==1){
     <TextInput  placeholder=" Recored your exercise.....  " 
     value={task}
     onChangeText={task => setTask(task)}
-  style={styles.intputtext}/> <TouchableOpacity  style={styles.addBottom}  onPress={ ()=>{changescrean();
+  style={styles.intputtext}/> <TouchableOpacity  style={styles.addBottom}  onPress={ ()=>{ router.push({
+    pathname:"/recored",
+    params:{
+         savetime:(changetime(time) ),
+         savedtext:(setTask(task)),
+    }
+  })
     editing() ;
    }
    
  }><Text style={styles.addBottomtext}> +</Text></TouchableOpacity>
  </View>
- <ImageBackground  source={require('./assets/light.jpg')} style={styles.image} >
+ <ImageBackground  source={require('..././assets/light.jpg')} style={styles.image} >
  {selectedtask.map((task,index) =>(
   <Text key={index} style={styles.task} >{task} </Text> 
  )

@@ -3,17 +3,11 @@ import { View,Text, StyleSheet,TouchableOpacity,ImageBackground} from 'react-nat
 import {TextInput} from 'react-native-paper';
 import { SystemBars } from "react-native-edge-to-edge";
 import React, { useState,useEffect } from "react";
-export default  function Recored({ focuse,back,RecorederTime}){
+import { useLocalSearchParams } from "expo-router";
+
+export default  function Recored(){
     const [teker,setTeker]=useState([]);
-    const[timestore,setTimestore]=useState([])
-    useEffect(()=>{
-        if (!focuse) return;
-setTeker(prev=>[...prev,focuse])
-    },[focuse]) 
- useEffect(()=>{
-    if (!RecorederTime) return;
-setTimestore(prev=>[...prev,RecorederTime])
-    },[RecorederTime])
+   
     return(
     <View style={styles.continer}> 
 <Text style={styles.title}> Your Recoreds page </Text>
