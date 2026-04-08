@@ -46,7 +46,11 @@ if(time==1){
     if (trimmed.length>0){
      setSelectedtask(prev=>[...prev,trimmed])
       setTask('');
+             setOnchange(trimmed); 
+    
+
     }
+  
   }
   return(
     <View style={styles.continer}>
@@ -58,19 +62,23 @@ if(time==1){
     <TextInput  placeholder=" Recored your exercise.....  " 
     value={task}
     onChangeText={task => setTask(task)}
-  style={styles.intputtext}/> <TouchableOpacity  style={styles.addBottom}  onPress={ ()=>{ router.push({
+  style={styles.intputtext}/> <TouchableOpacity  style={styles.addBottom}  onPress={ ()=>{
+     editing() ,
+    router.push({
     pathname:"/recored",
     params:{
-         savetime:(changetime(time) ),
-         savedtext:(setTask(task)),
+         savetime:(changetime(time)) ,
+         savedtext:onchange,
+         
     }
   })
-    editing() ;
+   
    }
+   
    
  }><Text style={styles.addBottomtext}> +</Text></TouchableOpacity>
  </View>
- <ImageBackground  source={require('..././assets/light.jpg')} style={styles.image} >
+ <ImageBackground  source={require('../../assets/light.jpg')} style={styles.image} >
  {selectedtask.map((task,index) =>(
   <Text key={index} style={styles.task} >{task} </Text> 
  )
