@@ -31,6 +31,16 @@ export default function Layout() {
               <FontAwesome5 name="record-vinyl" size={size} color={color} />
             ),
           }}
+        /> 
+        <Tabs.Screen
+          name="setting"
+          options={{
+            title: "setting",
+            headerShown: false,
+            tabBarIcon: ({ size, color }) => (
+              <FontAwesome5 name=" player-settings" size={size} color={color} />
+            ),
+          }}
         />
       </Tabs>
     </TaskProveder>

@@ -26,10 +26,10 @@ export default function Time() {
     setCheek,
     selectedtask,
     setSelectedtask,
-    onchange,
+    
     setOnchange,
   } = usetask();
-  
+
   const router = useRouter();
 
   useEffect(() => {
@@ -56,22 +56,23 @@ export default function Time() {
     const minute = Math.floor(time / 60);
     const second = Math.floor(time % 60);
     return `${minute}:${second < 10 ? "0" : ""}${second}`;
-  }
-
+  };
+   const onchange = changetime(time);
+   
   const onHandTouch = () => {
     setCheek(!cheek);
   };
   const Reset = () => {
     setCheek(false);
     setTime(0);
-  };
+  }; 
 
   const editing = () => {
     const trimmed = task.trim();
-    if (trimmed.length > 0) {
+    if (trimmed.length > 0) { 
       setSelectedtask((prev) => [...prev, trimmed]);
-      setTask("");
-      setOnchange(trimmed);
+       setTask("");
+   
     }
   };
   return (
@@ -94,18 +95,13 @@ export default function Time() {
           value={task}
           onChangeText={(task) => setTask(task)}
           style={styles.intputtext}
-        />{" "}
+        />
         <TouchableOpacity
           style={styles.addBottom}
           onPress={() => {
             (editing(),
-              router.push({
-                pathname: "/recored",
-                params: {
-                  savetime: changetime(time),
-                  savedtext: onchange,
-                },
-              }));
+            router.push("/recored")
+              );
           }}
         >
           <Text style={styles.addBottomtext}> +</Text>
@@ -117,7 +113,7 @@ export default function Time() {
       >
         {selectedtask.map((task, index) => (
           <Text key={index} style={styles.task}>
-            {task}{" "}
+            {task}
           </Text>
         ))}
       </ImageBackground>

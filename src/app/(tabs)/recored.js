@@ -5,8 +5,12 @@ import { SystemBars } from "react-native-edge-to-edge";
 import React, { useState,useEffect } from "react";
 import { useLocalSearchParams } from "expo-router";
 import { useRouter } from 'expo-router';
+import { usetask } from "../../context/taskcontext";
 export default  function Recored(){
-     const {savetime,savedtext}=useLocalSearchParams();
+
+const {onchange,setOnchange,selectedtask,setSelectedtask}=usetask();
+
+ const savedtask=selectedtask;
      const router=useRouter();
     return( 
     <View style={styles.continer}> 
@@ -17,8 +21,8 @@ export default  function Recored(){
  <SystemBars style="light" />
 <ImageBackground  source={require('../../../assets/light.jpg')} style={styles.image} > 
     <View  style={{flexDirection:'row'}}>
-      <Text style={{marginHorizontal:50,color:'#fff',fontSize:20}}>{savedtext}</Text>
-      <Text style={{color:'#fff',fontSize:20}}>{savetime}</Text>
+      <Text style={{marginHorizontal:50,color:'#fff',fontSize:20}}>{savedtask}</Text>
+      <Text style={{color:'#fff',fontSize:20}}>{onchange}</Text>
     </View>
  
   </ImageBackground>  
