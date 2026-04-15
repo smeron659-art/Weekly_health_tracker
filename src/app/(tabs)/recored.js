@@ -6,10 +6,9 @@ import React, { useState,useEffect } from "react";
 import { useLocalSearchParams } from "expo-router";
 import { useRouter } from 'expo-router';
 import { usetask } from "../../context/taskcontext";
-export default  function Recored(){
-
+export default  function Recored(){ 
+    
 const {onchange,setOnchange,selectedtask,setSelectedtask}=usetask();
-
  const savedtask=selectedtask;
      const router=useRouter();
     return( 
