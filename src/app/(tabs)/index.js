@@ -9,14 +9,14 @@ import {
   Alert,
   ImageBackground,
 } from "react-native";
-import { SystemBars } from "react-native-edge-to-edge";
+
 import { TextInput } from "react-native-paper";
 import { useRouter } from "expo-router";
 import { usetask } from "../../context/taskcontext";
-
+import { usecolor } from "../../context/colorcontext";
 
 export default function Time() {
-  
+
   const {
     task,
     setTask,
@@ -29,7 +29,7 @@ export default function Time() {
     
     setOnchange,
   } = usetask();
-
+ const {color,statusbar}=usecolor();
   const router = useRouter();
 
   useEffect(() => {
@@ -76,10 +76,10 @@ export default function Time() {
     }
   };
   return (
-    <View style={styles.continer}>
+    <View style={[styles.continer, { backgroundColor: color.background }]}>
       <Text style={styles.titel}>Exercise Timer</Text>
       <Text style={styles.time}> {changetime(time)}</Text>
-      <SystemBars style="light" />
+     
       <View style={styles.divide} />
       <View
         style={{
@@ -132,7 +132,6 @@ export default function Time() {
 const styles = StyleSheet.create({
   continer: {
     textAlign: "center",
-    backgroundColor: "#080f61",
     flex: 1,
     justifyContent: "center",
     alignItems: "center",

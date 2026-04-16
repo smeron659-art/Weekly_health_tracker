@@ -1,9 +1,17 @@
 import { Tabs } from "expo-router";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { TaskProveder } from "../../context/taskcontext";
+import { SystemBars } from "react-native-edge-to-edge";
+
+import { usecolor, ColorProvider } 
+from "../../context/colorcontext";
 export default function Layout() {
-  return (
-    <TaskProveder>
+  const Tablayout=()=>{ 
+    const{statusbar,color}=usecolor();
+    return(
+      <>
+  
+  <SystemBars style={statusbar}/>
       <Tabs
         screenOptions={{
           tabBarStyle: {
@@ -43,6 +51,15 @@ export default function Layout() {
           }}
         />
       </Tabs>
+      </>
+  )}
+  return (  
+    
+    
+   <ColorProvider>
+    <TaskProveder>
+       <Tablayout/>
     </TaskProveder>
+     </ColorProvider>
   );
 }
