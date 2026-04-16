@@ -6,10 +6,17 @@
   export default  function Setting(){
     const {color,statusbar,toggleteam ,isDark}=usecolor();
  return(
-   <View style={{ backgroundColor: color.background }}>
+   <View style={{ flex: 1, backgroundColor: color.background }}>
 
     <Text style={styles.continer}> hellow</Text>  
-    <Pressable onPress={toggleteam}>change 
+    <Pressable
+  onPress={toggleteam}
+  style={({ pressed }) => ({
+    transform: [{ scale: pressed ? 0.95 : 1 }],
+    backgroundColor: pressed ? "#a35555" : "rgb(32, 172, 20)",
+    padding: 10,
+  })}
+>change
     <Ionicons name={isDark? 'moon':'sunny'} size={24} color={color.icon}/>
     </Pressable>
 
