@@ -1,5 +1,5 @@
 import { Tabs } from "expo-router";
-import { FontAwesome5 } from "@expo/vector-icons";
+import Ionicons from '@expo/vector-icons/Ionicons';
 import { TaskProveder } from "../../context/taskcontext";
 import { SystemBars } from "react-native-edge-to-edge";
 
@@ -26,17 +26,17 @@ export default function Layout() {
             title: "Home",
             headerShown: false,
             tabBarIcon: ({ size, color }) => (
-              <FontAwesome5 name="home" size={size} color={color} />
+             <Ionicons name="home" size={size} color={color} />
             ),
           }}
         />
         <Tabs.Screen
           name="recored"
           options={{
-            title: "Recored",
+            title: "Recored", 
             headerShown: false,
             tabBarIcon: ({ size, color }) => (
-              <FontAwesome5 name="record-vinyl" size={size} color={color} />
+              <Ionicons name="recording" size={24} color="black" />
             ),
           }}
         /> 
@@ -46,7 +46,7 @@ export default function Layout() {
             title: "setting",
             headerShown: false,
             tabBarIcon: ({ size, color }) => (
-              <FontAwesome5 name=" player-settings" size={size} color={color} />
+             <Ionicons name="settings" size={24} color="black" />
             ),
           }}
         />

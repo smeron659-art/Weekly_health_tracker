@@ -12,18 +12,17 @@ export default  function Recored(){
 const {onchange,setOnchange,selectedtask,setSelectedtask}=usetask();
  const savedtask=selectedtask;
      const router=useRouter();
-    return(  
+    return(   
    <View style={[styles.continer, { backgroundColor: color.background }]}>
 <Text style={styles.title}> Your Recoreds page </Text> 
 <View style={styles.text }>
 <Text  style={styles.title}> ExerciseType</Text> <Text style={{ marginHorizontala:50}}>  </Text> <Text style={styles.titlel}> Time Takens</Text>
-</View> 
+</View>  
 <ImageBackground  source={require('../../../assets/light.jpg')} style={styles.image} > 
     <View style={styles.dataRow} >
-      <Text style={{marginHorizontal:50,color:'#fff',fontSize:20, flex:1}}>{savedtask}</Text>
-      <Text style={{color:'#fff',fontSize:20,flex:1}}>{onchange}</Text>
-    </View>
-  
+      <Text style={styles.taskText}>{savedtask}</Text>
+      <Text style={styles.taskText}>{onchange}</Text>
+    </View> 
   </ImageBackground>  
 <TouchableOpacity  onPress={() =>router.push('/') } style={styles.touchable}> <Text style={styles.back}>back</Text></TouchableOpacity>
     </View>
@@ -59,9 +58,8 @@ width:'90%',
 dataRow: {
   flexDirection: 'row',
   justifyContent: 'space-between',
-  width: '100%',
-  paddingVertical: 5,
-  paddingHorizontal: 10,
+  width: '90%',
+  
  },
 back:{
     color:'#201919',
@@ -88,6 +86,18 @@ titlel:{
 marginBottom:10,
 textAlign:'top',
  
+}, 
+taskText:{
+  marginHorizontal:50,
+  color:'#fff',
+  fontSize:20,
+  flex:1
+},
+
+timeText:{
+  color:'#fff',
+  fontSize:20,
+  flex:1
 },
 image: {
    width: '100%', // Make image background fill the width
@@ -96,6 +106,6 @@ image: {
     justifyContent: 'center',
     alignItems: 'center',
     paddingVertical: 10,
-  }
+  }  
 
-})
+})  

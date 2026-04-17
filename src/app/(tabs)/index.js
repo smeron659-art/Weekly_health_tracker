@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Toast from "react-native-toast-message";
+import { SafeAreaView } from 'react-native-safe-area-context';
 import {
   Text,
   StyleSheet,
   View,
-  SafeAreaView,
+  
   TouchableOpacity,
   Alert,
   ImageBackground,
@@ -49,7 +50,7 @@ export default function Time() {
   const showToast = () => {
     Toast.show({
       type: "success",
-      text: "This is some something 👋",
+      text1: "This is some something 👋",
     });
   };
   function changetime(time) {
@@ -80,8 +81,15 @@ export default function Time() {
     } 
   };
   return (
-    <View style={[styles.continer, { backgroundColor: color.background }]}>
-      <Text style={styles.titel}>Exercise lTimerr</Text>
+    <SafeAreaView
+ style={[
+   styles.continer,
+   { backgroundColor: color.background }
+ ]}
+>
+
+    <View>
+      <Text style={styles.titel}>Exercise Timer</Text>
       <Text style={styles.time}> {changetime(time)}</Text>
      
       <View style={styles.divide} />
@@ -89,7 +97,7 @@ export default function Time() {
         style={{
           flexDirection: "row",
           justifyContent: "space-between",
-          alignItems: "left",
+          alignItems:  "flex-start",
           marginBottom: 40,
           marginTop: 40,
         }}
@@ -111,16 +119,12 @@ export default function Time() {
           <Text style={styles.addBottomtext}> +</Text>
         </TouchableOpacity>
       </View>
-      <ImageBackground
-        source={require("../../../assets/light.jpg")}
-        style={styles.image}
-      >
+     
         {selectedtask.map((task, index) => (
           <Text key={index} style={styles.task}>
             {task}
           </Text>
         ))}
-      </ImageBackground>
       <Toast />
       <TouchableOpacity onPress={onHandTouch} style={styles.tochable}>
         {" "}
@@ -131,6 +135,7 @@ export default function Time() {
         <Text style={styles.textre}> Reset</Text>{" "}
       </TouchableOpacity>
     </View>
+    </SafeAreaView>
   );
 }
 const styles = StyleSheet.create({
@@ -169,7 +174,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#fff",
   },
-
   intputtext: {
     width: "80%",
     height: 50,
@@ -228,6 +232,7 @@ const styles = StyleSheet.create({
   task: {
     color: "#ffff",
     textDecorationLine: "underline",
+    alignItems:"center",
   },
   image: {
     width: '90%', // Make image background fill the width
