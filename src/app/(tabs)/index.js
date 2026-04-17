@@ -59,7 +59,11 @@ export default function Time() {
   };
    const onchange = changetime(time);
    
-  const onHandTouch = () => {
+  const onHandTouch = () => { 
+    if (cheek) {
+    setOnchange((prev) => [...(prev || []), changetime(time)]);
+
+    } 
     setCheek(!cheek);
   };
   const Reset = () => {
@@ -72,12 +76,12 @@ export default function Time() {
     if (trimmed.length > 0) { 
       setSelectedtask((prev) => [...prev, trimmed]);
        setTask("");
-   
-    }
+     
+    } 
   };
   return (
     <View style={[styles.continer, { backgroundColor: color.background }]}>
-      <Text style={styles.titel}>Exercise Timer</Text>
+      <Text style={styles.titel}>Exercise lTimerr</Text>
       <Text style={styles.time}> {changetime(time)}</Text>
      
       <View style={styles.divide} />

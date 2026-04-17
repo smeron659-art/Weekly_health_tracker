@@ -7,24 +7,24 @@ import { useLocalSearchParams } from "expo-router";
 import { useRouter } from 'expo-router';
 import { usetask } from "../../context/taskcontext";
 import { usecolor } from "../../context/colorcontext";
-export default  function Recored(){ 
+export default  function Recored(){                                
      const{ color,statusbar}=usecolor();
 const {onchange,setOnchange,selectedtask,setSelectedtask}=usetask();
  const savedtask=selectedtask;
      const router=useRouter();
     return( 
    <View style={[styles.continer, { backgroundColor: color.background }]}>
-<Text style={styles.title}> Your Recoreds page </Text>
+<Text style={styles.title}> Your Recoreds page </Text> 
 <View style={styles.text }>
 <Text  style={styles.title}> ExerciseType</Text> <Text style={{ marginHorizontala:50}}>  </Text> <Text style={styles.titlel}> Time Takens</Text>
 </View> 
 
 <ImageBackground  source={require('../../../assets/light.jpg')} style={styles.image} > 
-    <View  style={{flexDirection:'row'}}>
+    <View style={styles.dataRow} >
       <Text style={{marginHorizontal:50,color:'#fff',fontSize:20}}>{savedtask}</Text>
       <Text style={{color:'#fff',fontSize:20}}>{onchange}</Text>
     </View>
- 
+
   </ImageBackground>  
 <TouchableOpacity  onPress={() =>router.push('/') } style={styles.touchable}> <Text style={styles.back}>back</Text></TouchableOpacity>
     </View>
@@ -57,6 +57,13 @@ width:'90%',
  flexDirection:'row',
 
 },
+dataRow: {
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  width: '100%',
+  paddingVertical: 5,
+  paddingHorizontal: 10,
+ },
 back:{
     color:'#201919',
     fontWeight:'bold',
