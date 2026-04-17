@@ -11,7 +11,7 @@ export default  function Recored(){
   const{ color,statusbar}=usecolor(); 
 const {onchange,setOnchange,selectedtask,setSelectedtask}=usetask();
  const savedtask=selectedtask;
-     const router=useRouter();
+     const router=useRouter(); 
     return(   
    <View style={[styles.continer, { backgroundColor: color.background }]}>
 <Text style={styles.title}> Your Recoreds page </Text> 

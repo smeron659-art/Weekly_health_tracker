@@ -15,6 +15,7 @@ import { TextInput } from "react-native-paper";
 import { useRouter } from "expo-router";
 import { usetask } from "../../context/taskcontext";
 import { usecolor } from "../../context/colorcontext";
+import { Color } from "react-native/types_generated/Libraries/Animated/AnimatedExports";
 
 export default function Time() {
 
@@ -89,8 +90,9 @@ export default function Time() {
 >
 
     <View>
-      <Text style={styles.titel}>Exercise Timer</Text>
-      <Text style={styles.time}> {changetime(time)}</Text>
+ 
+      <Text style={[styles.titel, {color:color.textPrimary}]}>Exercise Timer</Text>
+      <Text style={[styles.time,{color:color.textPrimary}]}> {changetime(time)}</Text>
      
       <View style={styles.divide} />
       <View
@@ -126,9 +128,9 @@ export default function Time() {
           </Text>
         ))}
       <Toast />
-      <TouchableOpacity onPress={onHandTouch} style={styles.tochable}>
+      <TouchableOpacity onPress={onHandTouch} style={[styles.tochable,{ borderColor:color.textPrimary}]}>
         {" "}
-        <Text style={styles.bottontext}> {cheek ? "puse" : "start"}</Text>
+        <Text style={[styles.bottontext,{color:color.textPrimary}]}> {cheek ? "puse" : "start"}</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={Reset} style={styles.restart}>
         {" "}
@@ -149,14 +151,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 27,
     fontSize: 33,
     fontWeight: "bold",
-    color: "#fff",
+    
     textAlign: "center",
   },
   tochable: {
     width: 110,
     height: 110,
     borderRadius: "100%",
-    borderColor: "#fff",
+   
     borderWidth: 1,
     alignItems: "center",
     justifyContent: "center",
@@ -172,7 +174,7 @@ const styles = StyleSheet.create({
     padding: 15,
     fontSize: 20,
     fontWeight: "bold",
-    color: "#fff",
+  
   },
   intputtext: {
     width: "80%",
@@ -183,7 +185,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 95,
     fontWeight: "bold",
-    color: "#fff",
+   
   },
   restart: {
     padding: 15,
