@@ -7,24 +7,23 @@ import { useLocalSearchParams } from "expo-router";
 import { useRouter } from 'expo-router';
 import { usetask } from "../../context/taskcontext";
 import { usecolor } from "../../context/colorcontext";
-export default  function Recored(){                                
-     const{ color,statusbar}=usecolor();
+export default  function Recored(){                                        
+  const{ color,statusbar}=usecolor(); 
 const {onchange,setOnchange,selectedtask,setSelectedtask}=usetask();
  const savedtask=selectedtask;
      const router=useRouter();
-    return( 
+    return(  
    <View style={[styles.continer, { backgroundColor: color.background }]}>
 <Text style={styles.title}> Your Recoreds page </Text> 
 <View style={styles.text }>
 <Text  style={styles.title}> ExerciseType</Text> <Text style={{ marginHorizontala:50}}>  </Text> <Text style={styles.titlel}> Time Takens</Text>
 </View> 
-
 <ImageBackground  source={require('../../../assets/light.jpg')} style={styles.image} > 
     <View style={styles.dataRow} >
-      <Text style={{marginHorizontal:50,color:'#fff',fontSize:20}}>{savedtask}</Text>
-      <Text style={{color:'#fff',fontSize:20}}>{onchange}</Text>
+      <Text style={{marginHorizontal:50,color:'#fff',fontSize:20, flex:1}}>{savedtask}</Text>
+      <Text style={{color:'#fff',fontSize:20,flex:1}}>{onchange}</Text>
     </View>
-
+  
   </ImageBackground>  
 <TouchableOpacity  onPress={() =>router.push('/') } style={styles.touchable}> <Text style={styles.back}>back</Text></TouchableOpacity>
     </View>
@@ -91,9 +90,12 @@ textAlign:'top',
  
 },
 image: {
-    width: 200,
-    height: 150,
-    marginBottom: 20,
+   width: '100%', // Make image background fill the width
+    minHeight: 170, // Use minHeight to allow content to expand
+    marginBottom: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: 10,
   }
 
 })

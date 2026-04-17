@@ -204,7 +204,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#ffffff",
     borderRadius: 20,
     paddingBottom: 4,
-
     alignSelf: "center",
   },
   addBottomtext: {
@@ -231,8 +230,11 @@ const styles = StyleSheet.create({
     textDecorationLine: "underline",
   },
   image: {
-    width: 150,
-    height: 120,
-    marginBottom: 20,
+    width: '90%', // Make image background fill the width
+    minHeight: 170, // Use minHeight to allow content to expand
+    marginBottom: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: 10,
   },
 });
