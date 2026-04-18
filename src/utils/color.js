@@ -14,7 +14,7 @@
   secondary: "#03DAC6",
 
   // Text colors
-  textPrimary: "#000000",
+  textPrimary: "rgb(230, 221, 221)",
   textSecondary: "#555555",
   textDisabled: "#999999",
 
@@ -52,7 +52,7 @@
   secondary: "#03DAC6",
 
   // Text colors
-  textPrimary: "#FFFFFF",
+  textPrimary: "#141313",
   textSecondary: "#BBBBBB",
   textDisabled: "#777777",
 

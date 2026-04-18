@@ -14,9 +14,9 @@ const {onchange,setOnchange,selectedtask,setSelectedtask}=usetask();
      const router=useRouter(); 
     return(   
    <View style={[styles.continer, { backgroundColor: color.background }]}>
-<Text style={styles.title}> Your Recoreds page </Text> 
+<Text style={[styles.title ,{color:color.textPrimary}]}> Your Recoreds page </Text> 
 <View style={styles.text }>
-<Text  style={styles.title}> ExerciseType</Text> <Text style={{ marginHorizontala:50}}>  </Text> <Text style={styles.titlel}> Time Takens</Text>
+<Text  style={[styles.title,{color:color.textPrimary}]}> ExerciseType</Text> <Text style={{ marginHorizontala:50}}>  </Text> <Text style={[styles.titlel,{color:color.textPrimary}]}> Time Takens</Text>
 </View>  
 <ImageBackground  source={require('../../../assets/light.jpg')} style={styles.image} > 
     <View style={styles.dataRow} >
@@ -36,7 +36,7 @@ const styles =StyleSheet .create(
    marginBottom:10,
     alignItems:'center',
    justifyContent:'center',
-    backgroundColor:'#080f61',
+  
  },
  touchable:{
   width:70,
@@ -49,7 +49,7 @@ const styles =StyleSheet .create(
  },
 text:{
 fontSize:26,
-color:'#fff',
+
 marginBottom:30,
 width:'90%',
  flexDirection:'row',
@@ -72,7 +72,7 @@ back:{
 title:{
     fontSize:20,
     fontWeight:'bold',
-    color:'#fff',
+   
 marginBottom:30,
 textAlign:'top',
 justifyContent:'flex-start',
@@ -82,20 +82,20 @@ marginHorizontal:40,
 titlel:{
     fontSize:20,
     fontWeight:'bold',
-    color:'#fff',
+  
 marginBottom:10,
 textAlign:'top',
  
 }, 
 taskText:{
   marginHorizontal:50,
-  color:'#fff',
+ 
   fontSize:20,
   flex:1
 },
 
 timeText:{
-  color:'#fff',
+  
   fontSize:20,
   flex:1
 },

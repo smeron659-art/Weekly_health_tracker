@@ -9,7 +9,7 @@
  return( 
   <SafeAreaView style={{ flex: 1, backgroundColor: color.background }}>
    <View> 
-    <Text style={styles.continer}> hellow</Text>  
+    <Text style={[styles.continer,{color:color.textPrimary}]}> setting</Text>  
     <Pressable
   onPress={toggleteam}
   style={({ pressed }) => ({
