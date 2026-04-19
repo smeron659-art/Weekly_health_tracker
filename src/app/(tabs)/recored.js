@@ -26,7 +26,7 @@ const {onchange,setOnchange,selectedtask,setSelectedtask}=usetask();
   </ImageBackground>  
 <TouchableOpacity  onPress={() =>router.push('/') } style={styles.touchable}> <Text style={styles.back}>back</Text></TouchableOpacity>
     </View>
-  
+
     )}
 const styles =StyleSheet .create( 
 {
