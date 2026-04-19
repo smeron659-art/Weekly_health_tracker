@@ -3,12 +3,12 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import { TaskProveder } from "../../context/taskcontext";
 import { SystemBars } from "react-native-edge-to-edge";
 import Onboarding from 'react-native-onboarding-swiper';
-import Onboarding from "../../screen/Onbording";
+import OnbordingScreen from "../../screen/Onbording";
 import { useState,useEffect } from "react";
 import { usecolor, ColorProvider } 
 from "../../context/colorcontext";
 export default function Layout() {
-   const [asyncstorage ,setAsyncsstorage]=useState(true);
+   const [showonbording ,setShowonbording]=useState(true);
   const Tablayout=()=>{ 
     const{statusbar,color}=usecolor();
     return(
@@ -56,9 +56,9 @@ export default function Layout() {
       </Tabs>
       </>
   )} 
-  if(asyncstorage==true){
+  if(showonbording==true){
   return(
-<Onboarding/>
+<OnbordingScreen/>
   );}
   else{
   return (  
