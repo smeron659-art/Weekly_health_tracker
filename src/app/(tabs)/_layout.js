@@ -7,13 +7,24 @@ import OnbordingScreen from "../../screen/Onbording";
 import { useState,useEffect } from "react";
 import { usecolor, ColorProvider } 
 from "../../context/colorcontext";
+import { setItem,getItem } from "../../utils/storage";
 export default function Layout() {
    const [showonbording ,setShowonbording]=useState(true);
+   const cheekonbording =async()=>{
+try{
+  const value=await getItem("onbordingfinshed");
+  setShowonbording(value==null);
+}
+   catch(error){
+    console.log(error)
+   }
+}
+ useEffect(()=>{cheekonbording()},[]);
   const Tablayout=()=>{ 
     const{statusbar,color}=usecolor();
     return(
       <>
-  
+
   <SystemBars style={statusbar}/>
       <Tabs
         screenOptions={{
